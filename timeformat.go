@@ -6,11 +6,13 @@ import (
 )
 
 const (
-	DateFormat     = "20060102"
+	DateFormat = "20060102"
+
+	CommonDate = "2006-01-02"
+	SimpleDate = "2006-1-2"
+	LDate      = "2006/1/2"
+
 	CommonDatetime = "2006-01-02 15:04:05"
-	CommonDate     = "2006-01-02"
-	SimpleDate     = "2006-1-2"
-	LDate          = "2006/1/2"
 	RFC3339Milli   = "2006-01-02T15:04:05.999999Z07:00"
 )
 
@@ -29,6 +31,7 @@ func GetLastDateOfMonth(d time.Time) time.Time {
 func GetZeroTime(d time.Time) time.Time {
 	return time.Date(d.Year(), d.Month(), d.Day(), 0, 0, 0, 0, d.Location())
 }
+
 func MustParseDate(v string) (date time.Time, err error) {
 	dates := []string{DateFormat, CommonDatetime, CommonDate, SimpleDate, LDate}
 	for _, datepattern := range dates {
