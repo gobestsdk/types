@@ -27,11 +27,15 @@ func GetLastDateOfMonth(d time.Time) time.Time {
 	return GetFirstDateOfMonth(d).AddDate(0, 1, -1)
 }
 
-//获取某一天的0点时间
+//GetZeroTime 获取某一天的0点时间
 func GetZeroTime(d time.Time) time.Time {
 	return time.Date(d.Year(), d.Month(), d.Day(), 0, 0, 0, 0, d.Location())
 }
 
+//GetLastZeroTime 获取某一天的23:59:59时间
+func GetLastZeroTime(d time.Time) time.Time {
+	return time.Date(d.Year(), d.Month(), d.Day(), 23, 59, 59, 0, d.Location())
+}
 func MustParseDate(v string) (date time.Time, err error) {
 	dates := []string{DateFormat, CommonDatetime, CommonDate, SimpleDate, LDate}
 	for _, datepattern := range dates {
