@@ -20,7 +20,10 @@ func (dt *Clock) UnmarshalText(text []byte) (err error) {
 	dt.seconds = myT.seconds
 	return
 }
-
+func (dt *Clock) Add(s int) *Clock {
+	dt.seconds += s
+	return dt
+}
 func (dt Clock) Second() int {
 	return dt.seconds
 }
