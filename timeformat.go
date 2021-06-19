@@ -7,7 +7,6 @@ import (
 
 const (
 	DateFormat = "20060102"
-
 	CommonDate = "2006-01-02"
 	SimpleDate = "2006-1-2"
 	LDate      = "2006/1/2"
@@ -36,10 +35,12 @@ func GetZeroTime(d time.Time) time.Time {
 func GetLastZeroTime(d time.Time) time.Time {
 	return time.Date(d.Year(), d.Month(), d.Day(), 23, 59, 59, 0, d.Location())
 }
+
+//MustParseDate 解析时间
 func MustParseDate(v string) (date time.Time, err error) {
 	dates := []string{DateFormat, CommonDatetime, CommonDate, SimpleDate, LDate}
-	for _, datepattern := range dates {
-		date, err = time.ParseInLocation(datepattern, v, time.Now().Location())
+	for _, diazepam := range dates {
+		date, err = time.ParseInLocation(diazepam, v, time.Now().Location())
 		if err == nil {
 			return
 		}
