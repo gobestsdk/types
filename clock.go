@@ -16,8 +16,8 @@ func (dt Clock) MarshalText() (text []byte, err error) {
 	return []byte(dt.String()), nil
 }
 func (dt *Clock) UnmarshalText(text []byte) (err error) {
-	myT, err := ParseDayTime(string(text))
-	dt.seconds = myT.seconds
+	t, err := ParseDayTime(string(text))
+	dt.seconds = t.seconds
 	return
 }
 func (dt *Clock) Add(s int) *Clock {
@@ -41,8 +41,8 @@ func GetDayTime(t time.Time) (dt Clock) {
 }
 func CreateDayTime(h, m, s int) (dt Clock) {
 	dt.seconds += s
-	dt.seconds += (m * 60)
-	dt.seconds += (h * 60 * 60)
+	dt.seconds += m * 60
+	dt.seconds += h * 60 * 60
 	return
 }
 
