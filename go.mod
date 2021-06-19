@@ -1,3 +1,3 @@
-module github.com/gobestsdk/types
+module git-admin.inyuapp.com/pkg/types
 
 go 1.16
