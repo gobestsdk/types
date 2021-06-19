@@ -10,6 +10,7 @@ import (
 
 type Clock struct {
 	seconds int
+  
 }
 
 func (dt Clock) MarshalText() (text []byte, err error) {
