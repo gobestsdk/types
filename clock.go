@@ -27,6 +27,7 @@ func (dt *Clock) Add(s int) *Clock {
 func (dt Clock) Second() int {
 	return dt.seconds
 }
+
 func (dt Clock) HMS() (h, m, s int) {
 	s = dt.seconds
 	h = s / 3600
