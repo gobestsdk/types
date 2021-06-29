@@ -11,8 +11,8 @@ type BinaryNode interface {
 func PrintBinary(b BinaryNode) (pt [][]interface{}) {
 	deep := Deepest(b)
 
-	hei := deep * (deep + 1) / 2
-	wid := hei*2 - 1
+	hei := deep*2 - 1
+	wid := deep*(deep+1) - 1
 	pt = CreateMat(hei, wid, " ")
 	pt[0][wid/2] = b.Value()
 	if !b.Left().IsNil() {

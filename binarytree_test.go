@@ -81,4 +81,75 @@ func TestPrint(t *testing.T) {
 		},
 	}
 	PrintMat(PrintBinary(c))
+	d := &Btree{
+		vs: 1,
+		left: &Btree{
+			vs: 2,
+			left: &Btree{
+				vs: 4,
+			},
+		},
+		right: &Btree{
+			vs: 3,
+			left: &Btree{
+				vs: 5555,
+			},
+			right: &Btree{
+				vs: 6,
+			},
+		},
+	}
+	PrintMat(PrintBinary(d))
+}
+func TestExpandMat(t *testing.T) {
+	d := &Btree{
+		vs: 1,
+		left: &Btree{
+			vs: 2,
+			left: &Btree{
+				vs: 4,
+			},
+		},
+		right: &Btree{
+			vs: 3,
+			left: &Btree{
+				vs: 5,
+			},
+			right: &Btree{
+				vs: 6,
+			},
+		},
+	}
+	PrintMat(ExpandMat(PrintBinary(d), 1))
+
+	e := &Btree{
+		vs: "1 ",
+		left: &Btree{
+			vs: "2 ",
+			left: &Btree{
+				vs: "4 ",
+			},
+		},
+		right: &Btree{
+			vs: "3 ",
+			left: &Btree{
+				vs: "5 ",
+			},
+			right: &Btree{
+				vs: "66",
+			},
+		},
+	}
+	PrintMat(PrintBinary(e))
+
+}
+
+func TestExpandMatCell(t *testing.T) {
+
+	mt := ExpandMatCell(4, 3)
+	PrintMat(mt)
+	mt = ExpandMatCell("/", 3)
+	PrintMat(mt)
+	mt = ExpandMatCell("00000", 3)
+	PrintMat(mt)
 }
